@@ -1,0 +1,9 @@
+http: 
+  port: "8083"
+
+db:
+  host: "![XlupVBRJjcUmDw0HCreE9g==]"
+  port: "3306"
+  dbname: "![8Xg/aIISoK/Achsif4PA8g==]"
+  user: "![A2Xoc3qMudY=]"
+  password: "![/+u5YRThuOF6TbtsAf3l8A==]"
