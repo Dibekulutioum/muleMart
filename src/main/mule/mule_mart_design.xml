@@ -21,6 +21,9 @@ http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mu
 	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="9cf3d24f-3582-4490-9265-0877c511a865" file="${env}-config-secure.yaml" key="HelloMule" >
 		<secure-properties:encrypt algorithm="Blowfish" />
 	</secure-properties:config>
+	<salesforce:sfdc-config name="Salesforce_Config" doc:name="Salesforce Config" doc:id="48198ea9-ea11-4e58-861c-2ac5ad4a6983" >
+		<salesforce:basic-connection username="adibekulu.82bd9ff1f8f9@agentforce.com" password="Tsion@1985" securityToken="qcXwvQMosion6EEgQddJssn2" url="https://login.salesforce.com/services/Soap/u/64.0" />
+	</salesforce:sfdc-config>
 	<flow name="mule_mart_design-main">
         <http:listener config-ref="mule_mart_design-httpListenerConfig" path="/api/*">
             <http:response statusCode="#[vars.httpStatus default 200]">
@@ -227,6 +230,7 @@ payload]]></ee:set-payload>
             </ee:message>
         </ee:transform>
 		<jms:publish doc:name="Publish" doc:id="de75913f-a156-4629-ab87-dc4f3f8b593d" config-ref="JMS_Config" destination="MuleMartProject"/>
+		<!-- [STUDIO:"Create"]<salesforce:create doc:name="Create" doc:id="b746ed98-c353-4634-90e0-f38474d87457" config-ref="Salesforce_Config" type="Inventory__c"/> [STUDIO] -->
     </flow>
     <flow name="get:\inventory\summary\(itemId):mule_mart_design-config">
         <ee:transform doc:name="Transform Message">
@@ -253,12 +257,12 @@ output application/json
         </ee:transform>
     </flow>
     <flow name="get:\inventory\(itemId):mule_mart_design-config">
-        <ee:transform doc:name="Transform Message">
+		<ee:transform doc:name="Transform Message">
             <ee:variables>
                 <ee:set-variable variableName="itemId">attributes.uriParams.'itemId'</ee:set-variable>
             </ee:variables>
         </ee:transform>
-        <ee:transform doc:name="Transform Message">
+		<ee:transform doc:name="Transform Message">
             <ee:message>
                 <ee:set-payload><![CDATA[%dw 2.0
 output application/json

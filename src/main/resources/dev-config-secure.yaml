@@ -2,14 +2,16 @@ http:
   port: "8040"
 
 db:
-  host: "![XlupVBRJjcUmDw0HCreE9g==]"
+  host: "localhost"
   port: "3306"
-  dbname: "![8Xg/aIISoK/Achsif4PA8g==]"
-  user: "![A2Xoc3qMudY=]"
+  dbname: "mulemart"
+  user: "root"
   password: "![/+u5YRThuOF6TbtsAf3l8A==]"
   
 jms:
   username: "![Z+DNht+lP9Q=]"
   password: "![Z+DNht+lP9Q=]"
   brokerUrl: "![YZpi8YUYLh9slkZJUg4IUfyvIrxfrTaN]"
-
+  
+sf:
+  token: "![HMrGVLZ8UztP8uW6VVD4LsxcuerHZn/Syp2Wb8zaK4o=]"
